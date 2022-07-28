@@ -23,10 +23,10 @@ public class HelloController implements Controller {
         ModelAndView modelAndView = new ModelAndView();
         String result = "业务结果";
         modelAndView.addObject(result);
-
+        System.out.println("===============================================");
         // 跳转到test.jsp页面
         modelAndView.setViewName("test");
-        return null;
+        return modelAndView;
     }
 
 
