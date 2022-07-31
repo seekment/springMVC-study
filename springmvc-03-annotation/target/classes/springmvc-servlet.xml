@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--    指定要扫描的包，包下面的注解才能够生效-->
+    <context:component-scan base-package="com.yang.controller"/>
+<!--    过滤掉资源,如js,css,html等等-->
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+<!--&lt;!&ndash;    1 处理器映射器&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+<!--    &lt;!&ndash; 2 处理器适配器&ndash;&gt;-->
+<!--     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
+<!--    -->
+
+<!--    3 视图解析器- : 模板引擎,Thymelerf, freemarker -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+<!--直接注解,不需要了 4 注册controller-->
+<!--<bean name="/hello2" class="com.yang.controller.HelloController"/>-->
+
+</beans>
